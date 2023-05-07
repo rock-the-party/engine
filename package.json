@@ -1,15 +1,17 @@
 {
-  "name": "@r-t-p/clean-typescript",
+  "name": "@r-t-p/engine",
   "version": "0.0.1",
   "description": "",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "source": "src/index.ts",
+  "main": "dist/main.js",
+  "module": "dist/module.js",
+  "types": "dist/types.d.ts",
   "author": "justplainfred",
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "build": "tsc",
-    "dev": "tsc -w",
+    "build": "parcel build",
+    "watch": "parcel watch",
     "preversion": "npm run test",
     "version": "npm run build",
     "postversion": "git push && git push --tags",
@@ -17,26 +19,29 @@
     "bump-minor": "npm version minor",
     "bump-major": "npm version major"
   },
-    "repository": {
+  "repository": {
     "type": "git",
-    "url": "git+https://github.com/rock-the-party/clean-typescript.git"
+    "url": "git+https://github.com/rock-the-party/engine.git"
   },
   "bugs": {
-    "url": "https://github.com/rock-the-party/clean-typescript/issues"
+    "url": "https://github.com/rock-the-party/engine/issues"
   },
   "keywords": [],
   "devDependencies": {
-    "jest": "^29.5.0",
-    "typescript": "^5.0.3",
+    "@parcel/packager-ts": "^2.8.3",
+    "@parcel/transformer-typescript-types": "^2.8.3",
     "@types/jest": "^29.5.0",
-    "ts-jest": "^29.1.0"
+    "jest": "^29.5.0",
+    "parcel": "^2.8.3",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.3"
   },
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
     "testMatch": [
       "**/__tests__/**/*.ts",
-      "**/?(*.)+(spec|test).ts"
+      "**/*.test.ts"
     ]
   }
 }
